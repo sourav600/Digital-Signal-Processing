@@ -15,7 +15,6 @@ num_bits = 3
 quant_levels = 2 ** num_bits
 quant_signal = np.round(sampled_signal * quant_levels / max(sampled_signal)) / quant_levels * max(sampled_signal)
 
-# iii) Coding (example with 3-bit PCM)
 def PCM_encode(signal, num_bits):
     quant_levels = 2 ** num_bits
     max_val = max(signal)
@@ -26,12 +25,10 @@ def PCM_encode(signal, num_bits):
 
 pcm_codes = PCM_encode(quant_signal, num_bits)
 
-# Print Quantized values and their PCM codes
 print("Quantized values and PCM codes:")
 for i in range(len(quant_signal)):
     print(f"Sample {i}: Quantized Value = {quant_signal[i]:.2f}, PCM Code = {pcm_codes[i]}")
 
-# Plot the original, sampled, quantized signals and PCM codes
 plt.figure(figsize=(12, 8))
 plt.subplot(2, 2, 1)
 plt.plot(t, signal)
